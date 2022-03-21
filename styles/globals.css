@@ -2,31 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+/* FONTS */
+@font-face {
+  font-family: 'Monst';
+  src: url('../fonts/Montserrat-Regular.ttf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monst';
+  src: url('../fonts/Montserrat-SemiBold.ttf');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+/* END FONTS */
+/* body {
+  font-family: Monst;
+  font-weight: 600;
+} */
+
 @layer components {
   h1,
   h2,
   h3,
   h4,
   h5 {
-    @apply text-shades-600 font-semibold;
+    @apply text-shades-600 font-semibold font-monst;
   }
 
   h1 {
-    @apply text-shades-600 font-semibold text-2xl;
+    @apply text-2xl;
   }
   h2 {
-    @apply text-shades-600 font-semibold text-xl;
+    @apply text-xl;
   }
   h3 {
-    @apply text-shades-600 font-semibold text-lg;
+    @apply text-lg;
   }
   h4 {
-    @apply text-shades-600 font-semibold text-base;
+    @apply text-base;
   }
   h5 {
-    @apply text-shades-600 font-semibold text-sm;
+    @apply text-sm;
   }
   h6 {
-    @apply text-shades-600 font-semibold text-xs;
+    @apply text-xs;
   }
 }

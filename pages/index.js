@@ -20,6 +20,8 @@ export default function Home() {
       <div className='text-shades-400'>shade 400</div>
       <div className='text-shades-500'>shade 500</div>
       <div className='text-shades-600'>shade 600</div>
+
+      <div className='text-blue-500'>test</div>
     </div>
   );
 }
