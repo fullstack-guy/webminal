@@ -3,7 +3,30 @@
 @tailwind utilities;
 
 @layer components {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply text-shades-600 font-semibold;
+  }
+
   h1 {
-    @apply bg-primary;
+    @apply text-shades-600 font-semibold text-2xl;
+  }
+  h2 {
+    @apply text-shades-600 font-semibold text-xl;
+  }
+  h3 {
+    @apply text-shades-600 font-semibold text-lg;
+  }
+  h4 {
+    @apply text-shades-600 font-semibold text-base;
+  }
+  h5 {
+    @apply text-shades-600 font-semibold text-sm;
+  }
+  h6 {
+    @apply text-shades-600 font-semibold text-xs;
   }
 }

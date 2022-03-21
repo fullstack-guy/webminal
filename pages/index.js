@@ -5,8 +5,13 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   return (
     <div>
-      Hello
-      <h1>Hello</h1>
+      <div>Headers</div>
+      <h2>H1 Example</h2>
+      <h3>H1 Example</h3>
+      <h4>H1 Example</h4>
+      <h5>H1 Example</h5>
+      <h6>H1 Example</h6>
+      <div>Colors:</div>
       <div className='text-accent-1'>Accent 1</div>
       <div className='text-tertiary'>Accent 1</div>
       <div className='text-shades-100'>shade 100</div>
