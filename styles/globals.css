@@ -20,17 +20,19 @@
 }
 
 /* END FONTS */
-/* body {
+
+body {
   font-family: Monst;
-  font-weight: 600;
-} */
+  font-weight: 400;
+}
 
 @layer components {
   h1,
   h2,
   h3,
   h4,
-  h5 {
+  h5,
+  h6 {
     @apply text-shades-600 font-semibold font-monst;
   }
 
