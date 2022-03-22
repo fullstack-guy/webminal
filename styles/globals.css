@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* FONTS */
+/**** FONTS ****/
 @font-face {
   font-family: 'Monst';
   src: url('../fonts/Montserrat-Regular.ttf');
@@ -19,13 +19,14 @@
   font-display: swap;
 }
 
-/* END FONTS */
+/**** END FONTS ****/
 
 body {
   font-family: Monst;
   font-weight: 400;
 }
 
+/**** TAILWIND CLASSES ****/
 @layer components {
   h1,
   h2,
@@ -55,3 +56,5 @@ body {
     @apply text-xs;
   }
 }
+
+/**** END TAILWIND CLASSES ****/
