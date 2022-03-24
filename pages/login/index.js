@@ -32,11 +32,9 @@ const login = () => {
               <h1 className='mb-2'>Login Now</h1>
               <p className='paragraph-3'>Please login to your account</p>
             </div>
-            <div className='rounded-lg  text-center  bg-primary w-full p-3 relative  hover:bg-primary-dark cursor-pointer  transition-all '>
-              <button>
-                <h3 className='hover:text-white'>Signing with Google</h3>
-              </button>
-              <div className='absolute  right-1.5 top-4 mt-.5 '>
+            <div className='rounded-lg  text-center  bg-primary w-full relative  hover:bg-primary-dark cursor-pointer  transition-all  hover:text-white '>
+              <h3 className='hover:text-white  p-2'>Signing with Google</h3>
+              <div className='absolute  right-1.5 top-3 mt-[2px] '>
                 <Image
                   src='/images/icons/Go-forward.svg'
                   width='16px'
