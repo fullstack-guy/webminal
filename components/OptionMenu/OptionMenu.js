@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Avatar from '../Avatar/Avatar';
 import MenuItem from './MenuItem';
+import Button from '../Button/Button';
 
 const tempMenuOptions = [
   { text: 'Home', icon: '/images/icons/home.svg', isSelected: true },
@@ -31,7 +32,7 @@ const OptionMenu = () => {
           </div>
         </div>
       </div>
-      <div className='default-border flex justify-center flex-col  rounded-2xl p-6'>
+      <div className='default-border flex justify-center flex-col  rounded-2xl p-6 mb-5'>
         {tempMenuOptions.map(({ text, icon, isSelected }) => (
           <MenuItem
             key={text}
@@ -40,6 +41,30 @@ const OptionMenu = () => {
             isSelected={isSelected}
           />
         ))}
+      </div>
+      <div className='hidden default-border md:flex justify-center flex-col items-center  rounded-2xl p-6'>
+        <Image
+          src='/images/icons/Rounded-corners.svg'
+          width='64px'
+          height='64px'
+          className='object-contain'
+          alt='signing with google button'
+        />
+        <h1 className='mt-4'>Upgrade Plan</h1>
+        <p className='paragraph-3 max-w-[280px] text-center mt-6 mb-10'>
+          Become a <h5 className='inline'>Pro</h5> member today and save more
+          then <h4 className='inline '>75%</h4>
+        </p>
+
+        <Button
+          text='Sea deal'
+          onClick={() => {
+            alert('click');
+          }}
+        />
+        <div className='default-border   rounded-2xl min-w-[300px] text-center mt-14'>
+          <h2>Log out</h2>
+        </div>
       </div>
     </section>
   );
