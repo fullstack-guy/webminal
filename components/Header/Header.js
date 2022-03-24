@@ -18,11 +18,18 @@ const Header = () => {
         <div>
           <Image
             src='/images/logo.jpeg'
-            className='object-contain'
+            className='logo object-contain'
             width='200px'
             height='80px'
             alt='Website logo'
           />
+          {/* <Image
+            src='/images/logo-small.jpg'
+            className='small-logo object-contain '
+            width='150px'
+            height='50px'
+            alt='Website logo'
+          /> */}
         </div>
         <div>
           <Input placeholder='Search something...' />

@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <div className='default-container flex px-5'>
+      <div className='default-container flex flex-col md:flex-row px-5'>
         <OptionMenu />
         <div className='flex-grow'> {children}</div>
         <div>side b</div>
