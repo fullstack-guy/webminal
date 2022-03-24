@@ -55,6 +55,29 @@ body {
   h6 {
     @apply text-xs;
   }
+
+  p {
+    color: #6d6d78;
+  }
+
+  /* paragraph font size */
+  .paragraph-1 {
+    @apply text-xl;
+  }
+  .paragraph-2 {
+    @apply text-lg;
+  }
+  .paragraph-3 {
+    @apply text-sm;
+  }
+  .paragraph-4 {
+    @apply text-xs;
+  }
+
+  /* default screen view */
+  .default-container {
+    @apply max-w-screen-xl mx-auto h-screen;
+  }
 }
 
 /**** END TAILWIND CLASSES ****/
