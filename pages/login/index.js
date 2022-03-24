@@ -1,6 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
+import Button from '../../components/Button/Button';
+import { motion } from 'framer-motion';
+
+import { moveSideUpDown } from '../../utils/variants';
 const login = () => {
   return (
     <>
@@ -14,7 +18,12 @@ const login = () => {
       </Head>
       <main className='default-container'>
         <div className='flex flex-col md:flex-row h-full'>
-          <div className='flex-grow  flex flex-col items-center justify-center pr-5'>
+          <motion.div
+            variants={moveSideUpDown(-0, -55)}
+            initial='hidden'
+            animate='visible'
+            className='md:flex-grow  m-10 flex flex-col items-center justify-center pr-5'
+          >
             <Image
               src='/images/login.svg'
               width='336'
@@ -26,24 +35,19 @@ const login = () => {
               You can easily connect with thousands of tutors by using our
               platform.
             </p>
-          </div>
-          <div className='flex flex-grow flex-col justify-center items-center px-5'>
+          </motion.div>
+          <motion.div
+            variants={moveSideUpDown(-0, 55)}
+            initial='hidden'
+            animate='visible'
+            className='flex md:flex-grow flex-col justify-center items-center px-5'
+          >
             <div className='text-center mb-6'>
               <h1 className='mb-2'>Login Now</h1>
               <p className='paragraph-3'>Please login to your account</p>
             </div>
-            <div className='rounded-lg  text-center  bg-primary w-full relative  hover:bg-primary-dark cursor-pointer  transition-all  hover:text-white '>
-              <h3 className='hover:text-white  p-2'>Signing with Google</h3>
-              <div className='absolute  right-1.5 top-3 mt-[2px] '>
-                <Image
-                  src='/images/icons/Go-forward.svg'
-                  width='16px'
-                  height='16px'
-                  alt='signing with google button'
-                />
-              </div>
-            </div>
-          </div>
+            <Button text='Signing with Google' alt='Signing with Google' />
+          </motion.div>
         </div>
       </main>
     </>

@@ -78,6 +78,12 @@ body {
   .default-container {
     @apply max-w-screen-xl mx-auto h-screen;
   }
+
+  /* BUTTONS */
+  .button {
+    @apply rounded-lg  text-center  bg-primary w-full relative  hover:bg-primary-dark cursor-pointer  transition-all  hover:text-white;
+  }
+  /* END BUTTONS */
 }
 
 /**** END TAILWIND CLASSES ****/
