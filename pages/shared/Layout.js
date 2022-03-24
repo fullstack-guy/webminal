@@ -1,11 +1,16 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
+import OptionMenu from '../../components/OptionMenu/OptionMenu';
 
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      {children}
+      <div className='default-container flex px-5'>
+        <OptionMenu />
+        <div className='flex-grow'> {children}</div>
+        <div>side b</div>
+      </div>
     </>
   );
 };

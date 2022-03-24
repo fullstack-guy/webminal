@@ -16,7 +16,7 @@ const login = () => {
           content='Free GNU/Linux Online Terminal and Programming platform '
         />
       </Head>
-      <main className='default-container'>
+      <main className='default-container  h-screen'>
         <div className='flex flex-col md:flex-row h-full'>
           <motion.div
             variants={moveSideUpDown(-0, -55)}
@@ -29,6 +29,7 @@ const login = () => {
               width='336'
               height='270'
               alt='login image'
+              priority={true}
             />
             <h1 className='mt-10'>Connect with the Tutors</h1>
             <p className='paragraph-3 max-w-xs text-center mt-3'>
@@ -46,7 +47,13 @@ const login = () => {
               <h1 className='mb-2'>Login Now</h1>
               <p className='paragraph-3'>Please login to your account</p>
             </div>
-            <Button text='Signing with Google' alt='Signing with Google' />
+            <Button
+              text='Signing with Google'
+              alt='Signing with Google'
+              onClick={() => {
+                alert('click');
+              }}
+            />
           </motion.div>
         </div>
       </main>

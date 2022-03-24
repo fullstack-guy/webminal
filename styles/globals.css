@@ -76,7 +76,7 @@ body {
 
   /* default screen view */
   .default-container {
-    @apply max-w-screen-xl mx-auto h-screen;
+    @apply max-w-screen-xl mx-auto;
   }
 
   /* BUTTONS */
@@ -84,6 +84,12 @@ body {
     @apply rounded-lg  text-center  bg-primary w-full relative  hover:bg-primary-dark cursor-pointer  transition-all  hover:text-white;
   }
   /* END BUTTONS */
+
+  /* BORDERS */
+  .default-border {
+    @apply border-2 p-3 px-5 border-gray-100 rounded-full;
+  }
+  /* END BORDERS */
 }
 
 /**** END TAILWIND CLASSES ****/
