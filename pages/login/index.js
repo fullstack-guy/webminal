@@ -13,7 +13,7 @@ const login = () => {
         />
       </Head>
       <main className='default-container'>
-        <div className='flex h-full'>
+        <div className='flex flex-col md:flex-row h-full'>
           <div className='flex-grow  flex flex-col items-center justify-center pr-5'>
             <Image
               src='/images/login.svg'
@@ -27,7 +27,7 @@ const login = () => {
               platform.
             </p>
           </div>
-          <div className='flex flex-grow flex-col justify-center items-center pr-5'>
+          <div className='flex flex-grow flex-col justify-center items-center px-5'>
             <div className='text-center mb-6'>
               <h1 className='mb-2'>Login Now</h1>
               <p className='paragraph-3'>Please login to your account</p>
