@@ -7,10 +7,3 @@
   transform: rotate(46deg);
   transform-origin: 50% 50%;
 }
-
-input {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 80px;
-}
