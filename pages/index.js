@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import CoursesList from '../components/CoursesList/CoursesList';
 
 import Layout from './shared/Layout';
 
@@ -11,7 +12,9 @@ export default function Home() {
         <title>My page title</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
-      <Layout>Hello world</Layout>
+      <Layout>
+        <CoursesList />
+      </Layout>
     </>
   );
 }

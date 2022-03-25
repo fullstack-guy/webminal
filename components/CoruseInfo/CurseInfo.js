@@ -13,7 +13,7 @@ const CurseInfo = () => {
         />
         <CourseInfoItem
           color='bg-tertiary'
-          width={55}
+          width={61}
           icon={'icon-tag-docs.svg'}
         />
         <CourseInfoItem
