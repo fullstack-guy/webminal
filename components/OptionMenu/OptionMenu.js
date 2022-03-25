@@ -5,9 +5,9 @@ import MenuItem from './MenuItem';
 import Button from '../Button/Button';
 
 const tempMenuOptions = [
-  { text: 'Home', icon: '/images/icons/home.svg', isSelected: true },
-  { text: 'My Courses', icon: '/images/icons/saved.svg', isSelected: false },
-  { text: 'Profile', icon: '/images/icons/user.svg', isSelected: false },
+  { text: 'Home', icon: '/images/icons/Home.svg', isSelected: true },
+  { text: 'My Courses', icon: '/images/icons/Saved.svg', isSelected: false },
+  { text: 'Profile', icon: '/images/icons/User.svg', isSelected: false },
 ];
 
 const OptionMenu = () => {
