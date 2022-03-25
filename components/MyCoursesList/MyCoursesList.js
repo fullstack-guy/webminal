@@ -1,10 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
-import CoursesListMenuItem from './CoursesListMenuItem';
-import CoursesListItem from './CoursesListItem';
+import CoursesListItem from '../CoursesList/CoursesListItem';
+import CoursesListMenuItem from '../CoursesList/CoursesListMenuItem';
 
-// options - icon - windows.svg;
-const CoursesList = () => {
+const MyCoursesList = () => {
   return (
     <div className='flex flex-col justify-center items-center'>
       <div className='flex gap-4 mb-6'>
@@ -15,28 +13,28 @@ const CoursesList = () => {
       </div>
       <div className='flex flex-wrap gap-4 justify-center'>
         <CoursesListItem
-          header={'JavaScript'}
-          paragraph={'Advanced web applications.'}
+          header={'SwiftUI'}
+          paragraph={'Fast prototyping for designers.'}
           length={'- 0 h 55 min'}
         />
         <CoursesListItem
-          header={'PowerPoint'}
-          paragraph={'Enhance your presentation skills.'}
-          length={'- 3 h 15 min'}
+          header={'Github'}
+          paragraph={'All that you need to know about it.'}
+          length={'- 2 h 35 min'}
         />
         <CoursesListItem
-          header={'Data Science'}
-          paragraph={'Analyze the data like a pro.'}
-          length={'- 3 h 15 min'}
+          header={'Research'}
+          paragraph={'Learn how to research like a pro.'}
+          length={'- 1 h 54 min'}
         />
         <CoursesListItem
-          header={'Digital Design'}
-          paragraph={'Learn the basics of the design.'}
-          length={'- 3 h 15 min'}
+          header={'Web Design'}
+          paragraph={'Design your first website today.'}
+          length={'- 0 h 33 min'}
         />
       </div>
     </div>
   );
 };
 
-export default CoursesList;
+export default MyCoursesList;

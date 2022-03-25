@@ -14,7 +14,7 @@ const CoursesListMenuItem = ({ text, icon }) => {
         height='64px'
         alt={text}
       />
-      <h5 className='py-3'>{text}</h5>
+      <h5 className='py-3 '>{text}</h5>
     </div>
   );
 };
