@@ -25,6 +25,7 @@ const watch = () => {
             />
           </div>
 
+          <p className='paragraph-4 w-[100%]'>{'- 0 h 55 min'}</p>
           <h1>Complete Introduction to the Basics of JavaScript</h1>
           <p>
             Here are all the basics that you need to know in order to get

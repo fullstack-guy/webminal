@@ -38,25 +38,25 @@ const profile = () => {
             <h3 className='pl-8 pb-4 pt-12'>Settings ⚙️</h3>
             <Notifications
               size={40}
-              icon={'icon-tag-search.svg'}
+              icon={'options-icon-star.svg'}
               header='Achievements'
               text='Learn all the basics that you need to know to get started.'
             />
             <Notifications
               size={40}
-              icon={'icon-tag-docs.svg'}
+              icon={'options-icon-notifcations.svg'}
               header='Notifications'
               text='Manage the way we send you all the notifications and alerts.'
             />
             <Notifications
               size={40}
-              icon={'icon-tag-settings.svg'}
+              icon={'options-icon-payment.svg'}
               header='Payment Details'
               text='You have 1 card ending 6789 linked to your account.'
             />
             <Notifications
               size={40}
-              icon={'icon-tag-star.svg'}
+              icon={'options-icon-heart.svg'}
               header='Preferences'
               text='Manage all the preferences and permissions.'
             />

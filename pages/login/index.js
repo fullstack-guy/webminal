@@ -50,6 +50,7 @@ const login = () => {
             <Button
               text='Signing with Google'
               alt='Signing with Google'
+              css='max-w-[400px]'
               onClick={() => {
                 alert('click');
               }}

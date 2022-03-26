@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import { calcLength } from 'framer-motion';
 
-const Button = ({ text, alt = '', onClick = () => {} }) => {
+const Button = ({ text, alt = '', onClick = () => {}, css = '' }) => {
   return (
-    <div className='button' onClick={onClick}>
+    <div className={`button ${css}`} onClick={onClick}>
       <h3 className='hover:text-white  p-2'>{text}</h3>
       <div className='absolute  right-1.5 top-3 mt-[2px] '>
         <Image

@@ -6,6 +6,7 @@ const CurseInfo = () => {
   return (
     <section className='min-w-[250px]'>
       <div className='flex flex-col justify-center gap-6'>
+        <h1>Lessons 📖</h1>
         <CourseInfoItem
           color='bg-secondary'
           width={70}

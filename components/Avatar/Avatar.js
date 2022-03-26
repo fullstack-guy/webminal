@@ -8,7 +8,9 @@ const getWidthStr = (size) => {
 
 const Avatar = ({ img, size = 48, withBorder = true }) => {
   const getBorderCss = () => {
-    return withBorder ? 'rounded-full border-2 border-gray-200 h-[51px]' : '';
+    return withBorder
+      ? `rounded-full border-2 border-gray-200 h-[${size + 3}px]`
+      : '';
   };
 
   const width = getWidthStr(size);
