@@ -1,13 +1,24 @@
 import React from 'react';
 import Image from 'next/image';
+
 import Avatar from '../Avatar/Avatar';
 import MenuItem from './MenuItem';
 import Button from '../Button/Button';
 
 const tempMenuOptions = [
-  { text: 'Home', icon: '/images/icons/Home.svg', isSelected: true },
-  { text: 'My Courses', icon: '/images/icons/Saved.svg', isSelected: false },
-  { text: 'Profile', icon: '/images/icons/User.svg', isSelected: false },
+  { text: 'Home', icon: '/images/icons/Home.svg', isSelected: true, url: '/' },
+  {
+    text: 'My Courses',
+    icon: '/images/icons/Saved.svg',
+    isSelected: false,
+    url: '/my-courses/',
+  },
+  {
+    text: 'Profile',
+    icon: '/images/icons/User.svg',
+    isSelected: false,
+    url: '/profile',
+  },
 ];
 
 const OptionMenu = () => {
@@ -33,12 +44,13 @@ const OptionMenu = () => {
         </div>
       </div>
       <div className='default-border flex justify-center flex-col  rounded-2xl p-6 mb-5'>
-        {tempMenuOptions.map(({ text, icon, isSelected }) => (
+        {tempMenuOptions.map(({ text, icon, isSelected, url }) => (
           <MenuItem
             key={text}
             text={text}
             icon={icon}
             isSelected={isSelected}
+            url={url}
           />
         ))}
       </div>

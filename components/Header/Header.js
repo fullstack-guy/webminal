@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Input from '../Input/Input';
 import Head from 'next/head';
-
+import Link from 'next/link';
 const Header = () => {
   <Head>
     <title>My page title</title>
@@ -16,13 +16,15 @@ const Header = () => {
     <header className='default-container'>
       <div className='flex justify-between px-4 items-center'>
         <div>
-          <Image
-            src='/images/logo.jpeg'
-            className='logo object-contain'
-            width='200px'
-            height='80px'
-            alt='Website logo'
-          />
+          <Link href='/' passHref className='cursor-pointer'>
+            <Image
+              src='/images/logo.jpeg'
+              className='logo object-contain cursor-pointer'
+              width='200px'
+              height='80px'
+              alt='Website logo'
+            />
+          </Link>
           {/* <Image
             src='/images/logo-small.jpg'
             className='small-logo object-contain '
