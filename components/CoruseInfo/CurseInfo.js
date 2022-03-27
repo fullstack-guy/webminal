@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CourseInfoItem from './CourseInfoItem';
 // import Image from 'next/image';
 
 const CurseInfo = () => {
+  const [url, setURL] = useState('');
+  useEffect(() => {
+    if (window.location.href.indexOf('watch') > -1) {
+      setURL('Topics 📚');
+    } else {
+      setURL('Lessons 📖');
+    }
+
+    console.log(url);
+  }, []);
+
+  // getTitle();
   return (
     <section className='min-w-[250px]'>
       <div className='flex flex-col justify-center gap-6'>
-        <h1>Lessons 📖</h1>
+        <h1>{url} </h1>
         <CourseInfoItem
           color='bg-secondary'
           width={70}

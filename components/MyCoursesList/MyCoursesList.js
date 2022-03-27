@@ -7,8 +7,8 @@ const MyCoursesList = () => {
     <div className='flex flex-col justify-center items-center'>
       <div className='flex gap-4 mb-6'>
         <CoursesListMenuItem text={'New'} icon={'options-icon-windows.svg'} />
-        <CoursesListMenuItem text='Popular' icon={'options-icon-star.svg'} />
-        <CoursesListMenuItem text='Free' icon={'options-icon-heart.svg'} />
+        <CoursesListMenuItem text='Popular' icon={'icon-star.svg'} />
+        <CoursesListMenuItem text='Free' icon={'icon-heart.svg'} />
         <CoursesListMenuItem text='Pro' icon={'options-icon-pro.svg'} />
       </div>
       <div className='flex flex-wrap gap-4 justify-center'>
