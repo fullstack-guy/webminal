@@ -10,7 +10,7 @@ const MenuItem = ({ text, icon, isSelected, url }) => {
       'bg-primary border-primary border rounded-3xl hover:bg-primary-dark transition-all ';
   }
   return (
-    <Link href={url}>
+    <Link href={url} passHref>
       <div
         className={`flex  cursor-pointer  mb-3 p-4   gap-2 items-center ${isSelectedCss}`}
       >

@@ -12,7 +12,7 @@ const CurseInfo = () => {
     }
 
     console.log(url);
-  }, []);
+  }, [url]);
 
   // getTitle();
   return (
