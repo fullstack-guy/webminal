@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-import GoForward from '../../images/icons/GoForward';
+import GoForward from '../../images/icons/GoForward.js';
 import { calcLength } from 'framer-motion';
 const Button = ({ text, alt = '', onClick = () => {}, css = '' }) => {
   const [onHover, setOnHover] = useState('#000');
