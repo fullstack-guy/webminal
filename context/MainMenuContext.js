@@ -1,7 +1,7 @@
 import React, { useState, createContext } from 'react';
-import Home from '../Images/icons/Home';
-import Saved from '../Images/icons/Saved';
-import User from '../Images/icons/User';
+import Home from '../images/icons/Home';
+import Saved from '../images/icons/Saved';
+import User from '../images/icons/User';
 
 export const MainMenuContext = createContext();
 

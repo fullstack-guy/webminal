@@ -3,9 +3,9 @@ import Image from 'next/image';
 import Avatar from '../Avatar/Avatar';
 import MenuItem from './MenuItem';
 import Button from '../Button/Button';
-import Home from '../../Images/icons/Home';
-import Saved from '../../Images/icons/Saved';
-import User from '../../Images/icons/User';
+import Home from '../../images/icons/Home';
+import Saved from '../../images/icons/Saved';
+import User from '../../images/icons/User';
 import { useRouter } from 'next/router';
 import { MainMenuContext } from '../../context/MainMenuContext';
 const OptionMenu = () => {

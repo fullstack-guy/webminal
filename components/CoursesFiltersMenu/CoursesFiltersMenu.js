@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import CoursesFiltersIcons from '../../Images/icons/CoursesFiltersIcons';
-import IconWindow from '../../Images/icons/IconWindow';
+import CoursesFiltersIcons from '../../images/icons/CoursesFiltersIcons';
+import IconWindow from '../../images/icons/IconWindow';
 import CoursesListMenuItem from '../CoursesList/CoursesListMenuItem';
 
 const CoursesFiltersMenu = () => {
