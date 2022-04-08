@@ -24,6 +24,9 @@ module.exports = {
           600: '#161616',
         },
       },
+      transitionProperty: {
+        'width': 'width',
+      },
     },
   },
   plugins: [],

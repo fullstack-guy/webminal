@@ -10,8 +10,6 @@ const CurseInfo = () => {
     } else {
       setURL('Lessons 📖');
     }
-
-    console.log(url);
   }, [url]);
 
   // getTitle();

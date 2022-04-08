@@ -90,6 +90,11 @@ body {
     @apply border-2 p-3 px-5 border-gray-100 rounded-full;
   }
   /* END BORDERS */
+
+  /*  ANIMATION */
+  .animate-500 {
+    @apply transition-all duration-1000;
+  }
 }
 
 /**** END TAILWIND CLASSES ****/

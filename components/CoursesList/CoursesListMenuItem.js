@@ -7,13 +7,8 @@ const CoursesListMenuItem = ({ text, icon }) => {
       className='border-2 p-3 rounded-full border-secondary
     flex flex-col justify-center items-center cursor-pointer'
     >
-      <Image
-        src={`/images/${icon}`}
-        className='object-contain'
-        width='64px'
-        height='64px'
-        alt={text}
-      />
+      {icon}
+
       <h5 className='py-3 '>{text}</h5>
     </div>
   );

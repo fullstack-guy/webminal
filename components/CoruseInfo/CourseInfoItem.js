@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import ProgressBar from '../ProgressBar/ProgressBar';
 
 const CourseInfoItem = ({ color, width, icon }) => {
   return (
     <div className='flex default-border gap-2 min-w-[250px] rounded-3xl'>
-      <div className=' pr-3'>
+      <div className='pr-3'>
         <Image
           src={`/images/${icon}`}
           width='64px'

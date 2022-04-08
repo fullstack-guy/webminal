@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import '../components/Header/header.css';
-
+import '../components/Input/input.css';
 import '../components/CoruseInfo/course-info.css';
 import '../components/CircleProgressbar/circleProgressbar.css';
 function MyApp({ Component, pageProps }) {

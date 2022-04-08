@@ -1,27 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 import Avatar from '../Avatar/Avatar';
 import MenuItem from './MenuItem';
 import Button from '../Button/Button';
-
-const tempMenuOptions = [
-  { text: 'Home', icon: '/images/icons/Home.svg', isSelected: true, url: '/' },
-  {
-    text: 'My Courses',
-    icon: '/images/icons/Saved.svg',
-    isSelected: false,
-    url: '/my-courses/',
-  },
-  {
-    text: 'Profile',
-    icon: '/images/icons/User.svg',
-    isSelected: false,
-    url: '/profile',
-  },
-];
-
+import Home from '../../Images/icons/Home';
+import Saved from '../../Images/icons/Saved';
+import User from '../../Images/icons/User';
+import { useRouter } from 'next/router';
 const OptionMenu = () => {
+  const router = useRouter();
+  const [tempMenuOptions, setTempMenuOptions] = useState([
+    { text: 'Home', icon: <Home />, isSelected: true, url: '/' },
+    {
+      text: 'My Courses',
+      icon: <Saved />,
+      isSelected: false,
+      url: '/my-courses/',
+    },
+    {
+      text: 'Profile',
+      icon: <User />,
+      isSelected: false,
+      url: '/profile',
+    },
+  ]);
+
+  useEffect(() => {
+    const item = tempMenuOptions.find((x) => x.isSelected);
+  }, [tempMenuOptions]);
+
   return (
     <section className='flex flex-col justify-center'>
       <div className='default-border p-3  mb-5'>
@@ -44,15 +52,34 @@ const OptionMenu = () => {
         </div>
       </div>
       <div className='default-border flex justify-center flex-col  rounded-2xl p-6 mb-5'>
-        {tempMenuOptions.map(({ text, icon, isSelected, url }) => (
-          <MenuItem
-            key={text}
-            text={text}
-            icon={icon}
-            isSelected={isSelected}
-            url={url}
-          />
-        ))}
+        {tempMenuOptions.map((item, index) => {
+          const { text, icon, isSelected, url } = item;
+
+          return (
+            <MenuItem
+              key={text}
+              text={text}
+              icon={icon}
+              isSelected={isSelected}
+              url={url}
+              onClick={() => {
+                const newOptions = tempMenuOptions.map((item) => ({
+                  ...item,
+                  isSelected: false,
+                }));
+                const newSelected = {
+                  ...tempMenuOptions[index],
+                  isSelected: true,
+                };
+
+                newOptions[index] = newSelected;
+                setTempMenuOptions(newOptions);
+                router.push(item.url);
+                // console.log(newOptions);
+              }}
+            />
+          );
+        })}
       </div>
       <div className='hidden default-border md:flex justify-center flex-col items-center  rounded-2xl p-6'>
         <Image
