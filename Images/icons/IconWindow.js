@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const IconWindow = ({ color = '#52C3FF' }) => {
+const IconWindow = ({ fill }) => {
   return (
     <svg
       width='60'
       height='60'
-      viewBox='0 0 60 60'
+      viewBox='1 0 60 60'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <circle cx='30' cy='30' r='30' fill={color} />
+      <circle cx='30' cy='30' r='30' fill={fill} />
       <path
         fillRule='evenodd'
         clipRule='evenodd'
