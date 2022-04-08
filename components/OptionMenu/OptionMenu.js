@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Image from 'next/image';
-
 import Avatar from '../Avatar/Avatar';
 import MenuItem from './MenuItem';
 import Button from '../Button/Button';
@@ -8,27 +7,10 @@ import Home from '../../Images/icons/Home';
 import Saved from '../../Images/icons/Saved';
 import User from '../../Images/icons/User';
 import { useRouter } from 'next/router';
+import { MainMenuContext } from '../../context/MainMenuContext';
 const OptionMenu = () => {
+  const [tempMenuOptions, setTempMenuOptions] = useContext(MainMenuContext);
   const router = useRouter();
-  const [tempMenuOptions, setTempMenuOptions] = useState([
-    { text: 'Home', icon: <Home />, isSelected: true, url: '/' },
-    {
-      text: 'My Courses',
-      icon: <Saved />,
-      isSelected: false,
-      url: '/my-courses/',
-    },
-    {
-      text: 'Profile',
-      icon: <User />,
-      isSelected: false,
-      url: '/profile',
-    },
-  ]);
-
-  useEffect(() => {
-    const item = tempMenuOptions.find((x) => x.isSelected);
-  }, [tempMenuOptions]);
 
   return (
     <section className='flex flex-col justify-center'>
