@@ -1,16 +1,12 @@
 import React from 'react';
+import CoursesFiltersMenu from '../CoursesFiltersMenu/CoursesFiltersMenu';
 import CoursesListItem from '../CoursesList/CoursesListItem';
 import CoursesListMenuItem from '../CoursesList/CoursesListMenuItem';
 
 const MyCoursesList = () => {
   return (
     <div className='flex flex-col justify-center items-center'>
-      <div className='flex gap-4 mb-6'>
-        <CoursesListMenuItem text={'New'} icon={'options-icon-windows.svg'} />
-        <CoursesListMenuItem text='Popular' icon={'icon-star.svg'} />
-        <CoursesListMenuItem text='Free' icon={'icon-heart.svg'} />
-        <CoursesListMenuItem text='Pro' icon={'options-icon-pro.svg'} />
-      </div>
+      <CoursesFiltersMenu />
       <div className='flex flex-wrap gap-4 justify-center'>
         <CoursesListItem
           header={'SwiftUI'}
