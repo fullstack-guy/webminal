@@ -10,7 +10,7 @@ const OptionMenu = () => {
   const router = useRouter();
 
   return (
-    <section className='flex flex-col justify-center'>
+    <section className='flex flex-col justify-start'>
       <div className='default-border p-3  mb-5'>
         <div className='default-container flex items-center gap-2'>
           <div className='px-2'>
