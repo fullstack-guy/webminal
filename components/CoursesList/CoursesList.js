@@ -1,11 +1,11 @@
 import React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 import CoursesListItem from './CoursesListItem';
 import CoursesFiltersMenu from '../CoursesFiltersMenu/CoursesFiltersMenu';
 
 // options - icon - windows.svg;
-const CoursesList = () => {
+const CoursesList = ({ session }) => {
   return (
     <>
       <h1 className='pl-8 py-10'>Courses List 😉</h1>

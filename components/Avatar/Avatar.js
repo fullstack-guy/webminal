@@ -2,16 +2,12 @@
 import React from 'react';
 import Image from 'next/image';
 
-const getWidthStr = (size) => {
-  return `${size}px`;
-};
-
 const Avatar = ({ img, size = 48, withBorder = true }) => {
   const getBorderCss = () => {
     return withBorder ? `rounded-full border-2 border-gray-200 h-[51px]` : '';
   };
 
-  const width = getWidthStr(size);
+  const width = size
   const borderCss = getBorderCss();
   return (
     <div className={`${borderCss}`}>

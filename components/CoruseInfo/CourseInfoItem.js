@@ -8,8 +8,8 @@ const CourseInfoItem = ({ color, width, icon }) => {
       <div className='pr-3'>
         <Image
           src={`/images/${icon}`}
-          width='64px'
-          height='64px'
+          width={64}
+          height={64}
           className='object-contain'
           alt='signing with google button'
         />

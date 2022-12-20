@@ -1,11 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
-import Button from '../../components/Button/Button';
 import { motion } from 'framer-motion';
+import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
 import { moveSideUpDown } from '../../utils/variants';
+import supabase from '../../utils/supabase-browser';
+
 const login = () => {
+  const session = useSession()
   return (
     <>
       <Head>
@@ -26,8 +30,8 @@ const login = () => {
           >
             <Image
               src='/images/login.svg'
-              width='336'
-              height='270'
+              width={336}
+              height={270}
               alt='login image'
               priority={true}
             />
@@ -47,14 +51,7 @@ const login = () => {
               <h1 className='mb-2'>Login Now</h1>
               <p className='paragraph-3'>Please login to your account</p>
             </div>
-            <Button
-              text='Signing with Google'
-              alt='Signing with Google'
-              css='max-w-[400px]'
-              onClick={() => {
-                alert('click');
-              }}
-            />
+            <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} theme="dark" providers={['google']} onlyThirdPartyProviders/>
           </motion.div>
         </div>
       </main>

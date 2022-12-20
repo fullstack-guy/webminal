@@ -7,8 +7,8 @@ const Notifications = ({ size, header, text, icon }) => {
       <div className=' pr-3'>
         <Image
           src={`/images/${icon}`}
-          width={`${size}px`}
-          height={`${size}px`}
+          width={size}
+          height={size}
           className='object-contain'
           alt='signing with google button'
         />

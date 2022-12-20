@@ -6,8 +6,8 @@ const Input = ({ placeholder = '' }) => {
     <div className='focus-within:border-secondary  animate-500 flex items-center gap-1 border-2   border-gray-100  focus:border-primary-dark rounded-full p-1'>
       <Image
         src='/images/icons/Search.svg'
-        width='24px'
-        height='24px'
+        width={24}
+        height={24}
         alt='Search Icon'
       />
       <input

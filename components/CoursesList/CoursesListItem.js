@@ -8,8 +8,8 @@ const CoursesListItem = ({ header, paragraph, length }) => {
         <Image
           src='/images/course-temp-1.svg'
           className='object-contain'
-          width='220px'
-          height='134px'
+          width={220}
+          height={134}
           alt={'temp'}
         />
       </div>

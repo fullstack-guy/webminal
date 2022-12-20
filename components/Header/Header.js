@@ -20,8 +20,8 @@ const Header = () => {
             <Image
               src='/images/logo.jpeg'
               className='logo object-contain cursor-pointer'
-              width='200px'
-              height='80px'
+              width={200}
+              height={80}
               alt='Website logo'
             />
           </Link>

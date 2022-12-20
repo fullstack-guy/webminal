@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import { useUser } from '@supabase/auth-helpers-react';
+
 import Layout from '../shared/Layout';
 import CircleProgressbar from '../../components/CircleProgressbar/CircleProgressbar';
 import Avatar from '../../components/Avatar/Avatar';

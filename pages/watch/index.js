@@ -19,8 +19,8 @@ const watch = () => {
             <Image
               src='/images/temp-video.png'
               className='object-contain'
-              width='490px'
-              height='304px'
+              width={490}
+              height={304}
               alt={'temp'}
             />
           </div>

@@ -1,13 +1,51 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useUser } from '@supabase/auth-helpers-react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
+
 import Avatar from '../Avatar/Avatar';
 import MenuItem from './MenuItem';
 import Button from '../Button/Button';
-import { useRouter } from 'next/router';
 import { MainMenuContext } from '../../context/MainMenuContext';
-const OptionMenu = () => {
+import supabase from '../../utils/supabase-browser';
+
+const OptionMenu = ({ session }) => {
   const [tempMenuOptions, setTempMenuOptions] = useContext(MainMenuContext);
   const router = useRouter();
+  const user = useUser()
+
+  const [loading, setLoading] = useState(true)
+  const [username, setUsername] = useState(null)
+
+  useEffect(() => {
+    getProfile()
+  }, [session])
+
+  async function getProfile() {
+    try {
+      setLoading(true)
+
+      let { data, error, status } = await supabase
+        .from('profiles')
+        .select(`username, website, avatar_url`)
+        .eq('id', user.id)
+        .single()
+
+      if (error && status !== 406) {
+        throw error
+      }
+
+      if (data) {
+        console.log(data, '******')
+        setUsername(data.username)
+      }
+    } catch (error) {
+      alert('Error loading user data!')
+      console.log(error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <section className='flex flex-col justify-start'>
@@ -17,14 +55,14 @@ const OptionMenu = () => {
             <Avatar img='/images/demo-avatar.webp' />
           </div>
           <div>
-            <h4>John Smith</h4>
-            <p className='paragraph-4'>johnsmith@gmail.com</p>
+            <h4>{username}</h4>
+            <p className='paragraph-4'>{user.email}</p>
           </div>
           <div className='pl-3'>
             <Image
               src='/images/icons/Go-forward.svg'
-              width='16px'
-              height='16px'
+              width={16}
+              height={16}
               alt='signing with google button'
             />
           </div>
@@ -63,8 +101,8 @@ const OptionMenu = () => {
       <div className='hidden default-border md:flex justify-center flex-col items-center  rounded-2xl p-6'>
         <Image
           src='/images/icons/Rounded-corners.svg'
-          width='64px'
-          height='64px'
+          width={64}
+          height={64}
           className='object-contain'
           alt='signing with google button'
         />
@@ -80,8 +118,15 @@ const OptionMenu = () => {
             alert('click');
           }}
         />
-        <div className='default-border   rounded-2xl min-w-[300px] text-center mt-14'>
-          <h2>Log out</h2>
+        <div className='default-border rounded-2xl min-w-[300px] text-center mt-14 hover-cursor'>
+          <button
+            onClick={async () => {
+              await supabase.auth.signOut()
+              router.push('/login')
+            }}
+          >
+            Log out
+          </button>
         </div>
       </div>
     </section>
