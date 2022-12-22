@@ -1,38 +1,54 @@
-import React from 'react';
-// import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
+import { useSession } from '@supabase/auth-helpers-react';
 
 import CoursesListItem from './CoursesListItem';
 import CoursesFiltersMenu from '../CoursesFiltersMenu/CoursesFiltersMenu';
+import supabase from '../../utils/supabase-browser';
 
 // options - icon - windows.svg;
-const CoursesList = ({ session }) => {
+const CoursesList = () => {
+  const session = useSession()
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    getCoursesList()
+  }, [session])
+  const getCoursesList = async () => {
+    try {
+      setLoading(true);
+      const { data, error, status } = await supabase.from('course').select(`*`);
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        setCourses(data);
+      }
+    } catch (error) {
+      alert("Error loading user data!");
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <>
       <h1 className='pl-8 py-10'>Courses List 😉</h1>
       <div className='flex flex-col justify-center items-center'>
         <CoursesFiltersMenu />
         <div className='flex flex-wrap gap-4 justify-center'>
-          <CoursesListItem
-            header={'JavaScript'}
-            paragraph={'Advanced web applications.'}
-            length={'- 0 h 55 min'}
-          />
-          <CoursesListItem
-            header={'PowerPoint'}
-            paragraph={'Enhance your presentation skills.'}
-            length={'- 3 h 15 min'}
-          />{' '}
-          \
-          <CoursesListItem
-            header={'Data Science'}
-            paragraph={'Analyze the data like a pro.'}
-            length={'- 3 h 15 min'}
-          />
-          <CoursesListItem
-            header={'Digital Design'}
-            paragraph={'Learn the basics of the design.'}
-            length={'- 3 h 15 min'}
-          />
+          {loading ? (
+            <div>Loading</div>
+          ) : 
+          courses.map((course) => (
+            <CoursesListItem
+              key={course.id}
+              header={course.name}
+              paragraph={course.description}
+              length={course.period}
+            />
+          ))}
         </div>
       </div>
     </>

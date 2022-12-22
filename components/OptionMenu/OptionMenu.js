@@ -26,7 +26,7 @@ const OptionMenu = ({ session }) => {
       setLoading(true)
 
       let { data, error, status } = await supabase
-        .from('profiles')
+        .from('profile')
         .select(`username, website, avatar_url`)
         .eq('id', user.id)
         .single()
@@ -36,7 +36,6 @@ const OptionMenu = ({ session }) => {
       }
 
       if (data) {
-        console.log(data, '******')
         setUsername(data.username)
       }
     } catch (error) {
