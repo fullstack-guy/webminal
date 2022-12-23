@@ -17,7 +17,7 @@ const CoursesList = () => {
   const getCoursesList = async () => {
     try {
       setLoading(true);
-      const { data, error, status } = await supabase.from('course').select(`*`);
+      const { data, error, status } = await supabase.from('courses').select(`*`);
       if (error && status !== 406) {
         throw error;
       }
@@ -46,7 +46,7 @@ const CoursesList = () => {
               key={course.id}
               header={course.name}
               paragraph={course.description}
-              length={course.period}
+              length={course.duration}
             />
           ))}
         </div>
