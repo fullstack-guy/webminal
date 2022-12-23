@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useUser } from '@supabase/auth-helpers-react';
+import { useSession, useUser } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
@@ -9,13 +9,15 @@ import Button from '../Button/Button';
 import { MainMenuContext } from '../../context/MainMenuContext';
 import supabase from '../../utils/supabase-browser';
 
-const OptionMenu = ({ session }) => {
+const OptionMenu = () => {
   const [tempMenuOptions, setTempMenuOptions] = useContext(MainMenuContext);
   const router = useRouter();
   const user = useUser()
+  const session = useSession()
 
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
+  const [avatarUrl, setAvatarUrl] = useState('')
 
   useEffect(() => {
     getProfile()
@@ -27,7 +29,7 @@ const OptionMenu = ({ session }) => {
 
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`full_name`)
+        .select(`full_name, avatar_url`)
         .eq('id', user.id)
         .single()
 
@@ -37,9 +39,9 @@ const OptionMenu = ({ session }) => {
 
       if (data) {
         setUsername(data.full_name)
+        setAvatarUrl(data.avatar_url)
       }
     } catch (error) {
-      alert('Error loading user data!')
       console.log(error)
     } finally {
       setLoading(false)
@@ -51,7 +53,7 @@ const OptionMenu = ({ session }) => {
       <div className='default-border p-3  mb-5'>
         <div className='default-container flex items-center gap-2'>
           <div className='px-2'>
-            <Avatar img='/images/demo-avatar.webp' />
+            <Avatar img={avatarUrl} />
           </div>
           <div>
             <h4>{username}</h4>

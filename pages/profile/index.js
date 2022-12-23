@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useUser } from '@supabase/auth-helpers-react';
 import { useSession } from '@supabase/auth-helpers-react';
@@ -7,8 +7,45 @@ import Layout from '../shared/Layout';
 import CircleProgressbar from '../../components/CircleProgressbar/CircleProgressbar';
 import Avatar from '../../components/Avatar/Avatar';
 import Notifications from '../../components/Notifications/Notifications';
+import supabase from '../../utils/supabase-browser';
 
 const profile = () => {
+  const user = useUser()
+  const session = useSession()
+  const [loading, setLoading] = useState(true)
+  const [username, setUsername] = useState(null)
+  const [avatarUrl, setAvatarUrl] = useState('')
+
+  useEffect(() => {
+    getProfile()
+  }, [session])
+
+  async function getProfile() {
+    try {
+      setLoading(true)
+
+      let { data, error, status } = await supabase
+        .from('profiles')
+        .select(`full_name, avatar_url`)
+        .eq('id', user.id)
+        .single()
+
+      if (error && status !== 406) {
+        throw error
+      }
+
+      if (data) {
+        setUsername(data.full_name)
+        setAvatarUrl(data.avatar_url)
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoading(false)
+    }
+  }
+  console.log(avatarUrl, '====')
+
   return (
     <>
       <Head>
@@ -23,7 +60,7 @@ const profile = () => {
               <CircleProgressbar />
               <div className='absolute top-[38%] left-[50%] translate-y-[-50%] translate-x-[-50%]'>
                 <Avatar
-                  img='/images/demo-avatar.webp'
+                  img={avatarUrl}
                   size={120}
                   withBorder={false}
                 />
@@ -33,8 +70,8 @@ const profile = () => {
               </div>
             </div>
             <div className='-mt-[50px]'>
-              <h3>John Smith 💯</h3>
-              <p className='paragraph-3 -ml-[8px]'>johnsmith@gmail.com</p>
+              <h3>{username} 💯</h3>
+              <p className='paragraph-3 -ml-[8px]'>{user.email}</p>
             </div>
           </div>
           <section className='-mt-[30px]'>
