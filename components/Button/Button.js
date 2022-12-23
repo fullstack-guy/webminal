@@ -11,7 +11,6 @@ const Button = ({ text, alt = '', onClick = () => {}, css = '' }) => {
       className={`button ${css}`}
       onClick={onClick}
       onMouseEnter={() => {
-        console.log('here');
         setOnHover('#fff');
       }}
       onMouseLeave={() => {

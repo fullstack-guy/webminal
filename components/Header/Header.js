@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 const Header = () => {
   <Head>
-    <title>My page title</title>
+    <title>Webminal - Learn and Practise Linux online, Programming online</title>
     <meta name='viewport' content='initial-scale=1.0, width=device-width' />
     <meta
       name='description'
