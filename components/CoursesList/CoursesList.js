@@ -4,7 +4,7 @@ import { useSession } from '@supabase/auth-helpers-react';
 import CoursesListItem from './CoursesListItem';
 import CoursesFiltersMenu from '../CoursesFiltersMenu/CoursesFiltersMenu';
 import supabase from '../../utils/supabase-browser';
-import { getDuration } from '../../utils/helpers';
+import { getDurationAsMinute } from '../../utils/helpers';
 
 // options - icon - windows.svg;
 const CoursesList = () => {
@@ -46,7 +46,7 @@ const CoursesList = () => {
               key={course.id}
               header={course.name}
               paragraph={course.description}
-              length={getDuration(course.duration)}
+              length={getDurationAsMinute(course.duration)}
             />
           ))}
         </div>

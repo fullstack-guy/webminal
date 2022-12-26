@@ -4,7 +4,7 @@ import { useSession, useUser } from "@supabase/auth-helpers-react";
 import CoursesFiltersMenu from "../CoursesFiltersMenu/CoursesFiltersMenu";
 import CoursesListItem from "../CoursesList/CoursesListItem";
 import supabase from "../../utils/supabase-browser";
-import { getDuration } from "../../utils/helpers";
+import { getDurationAsMinute } from "../../utils/helpers";
 
 const MyCoursesList = () => {
   const session = useSession();
@@ -48,7 +48,7 @@ const MyCoursesList = () => {
               key={course.course.id}
               header={course.course.name}
               paragraph={course.course.description}
-              length={getDuration(course.course.duration)}
+              length={getDurationAsMinute(course.course.duration)}
             />
           )): (
             <div>No Data</div>

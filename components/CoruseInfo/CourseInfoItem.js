@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import ProgressBar from '../ProgressBar/ProgressBar';
+import { getDurationAsMinute } from '../../utils/helpers';
 
-const CourseInfoItem = ({ color, width, icon }) => {
+const CourseInfoItem = ({ color, width, icon, duration, name, description }) => {
   return (
     <div className='flex default-border gap-2 min-w-[250px] rounded-3xl'>
       <div className='pr-3'>
@@ -15,10 +16,10 @@ const CourseInfoItem = ({ color, width, icon }) => {
         />
       </div>
       <div className='flex flex-col justify-center gap-2'>
-        <p className='paragraph-4'>- 0 h 55 min</p>
-        <h3>Introduction & Basics</h3>
+        <p className='paragraph-4'>{getDurationAsMinute(duration)}</p>
+        <h3>{name}</h3>
         <p className='paragraph-4 max-w-[200px] mb-6'>
-          Learn all the basics that you need to know to get started.
+          {description}
         </p>
 
         <ProgressBar width={width} color={color} />

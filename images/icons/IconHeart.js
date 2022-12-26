@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 const IconHeart = ({ fill, stroke = '#fff' }) => {
   return (
     <svg
-      width={32}
-      height={32}
+      width={60}
+      height={60}
       viewBox='0 0 60 60'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
