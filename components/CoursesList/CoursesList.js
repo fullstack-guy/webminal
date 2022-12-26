@@ -1,20 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { useSession } from '@supabase/auth-helpers-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useSession, useUser } from '@supabase/auth-helpers-react';
+import { useRouter } from 'next/router';
 
 import CoursesListItem from './CoursesListItem';
 import CoursesFiltersMenu from '../CoursesFiltersMenu/CoursesFiltersMenu';
+import ConfirmModal from '../ConfirmModal';
 import supabase from '../../utils/supabase-browser';
 import { getDurationAsMinute } from '../../utils/helpers';
 
 // options - icon - windows.svg;
 const CoursesList = () => {
   const session = useSession()
+  const router = useRouter()
+  const user = useUser()
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const [showModal, setShowModal] = useState(false)
+  const [selectedCourse, setSelectedCourse] = useState();
+  
   useEffect(() => {
     getCoursesList()
   }, [session])
+
   const getCoursesList = async () => {
     try {
       setLoading(true);
@@ -22,7 +29,7 @@ const CoursesList = () => {
       if (error && status !== 406) {
         throw error;
       }
-
+      
       if (data) {
         setCourses(data);
       }
@@ -32,6 +39,22 @@ const CoursesList = () => {
       setLoading(false);
     }
   };
+  
+  const handleCourseClick = useCallback((course) => () => {
+    setSelectedCourse(course)
+    setShowModal(true)
+  }, [])
+
+  const handleConfirm = useCallback(() => {
+    router.push({
+      pathname: '/watch',
+      query: {
+        courseId: selectedCourse?.id,
+        userId: user?.id
+      },
+    })
+  }, [selectedCourse, user])
+
   return (
     <>
       <h1 className='pl-8 py-10'>Courses List 😉</h1>
@@ -47,10 +70,18 @@ const CoursesList = () => {
               header={course.name}
               paragraph={course.description}
               length={getDurationAsMinute(course.duration)}
+              onClick={handleCourseClick(course)}
             />
           ))}
         </div>
       </div>
+      <ConfirmModal
+        showModal={showModal}
+        title={'Confirmation'}
+        description={`Are you sure to join in ${selectedCourse?.name} lesson?`}
+        onClose={() => setShowModal(false)}
+        onConfirm={handleConfirm}
+      />
     </>
   );
 };

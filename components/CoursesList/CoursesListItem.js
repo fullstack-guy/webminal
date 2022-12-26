@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 
-const CoursesListItem = ({ header, paragraph, length }) => {
+const CoursesListItem = ({ header, paragraph, length, onClick }) => {
   return (
-    <div className='mb-10'>
+    <div className='mb-10 hover:cursor-pointer' onClick={onClick}>
       <div>
         <Image
           src='/images/course-temp-1.svg'

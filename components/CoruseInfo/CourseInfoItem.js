@@ -15,7 +15,7 @@ const CourseInfoItem = ({ color, width, icon, duration, name, description }) => 
           alt='signing with google button'
         />
       </div>
-      <div className='flex flex-col justify-center gap-2'>
+      <div className='flex flex-col justify-center gap-2 flex-1'>
         <p className='paragraph-4'>{getDurationAsMinute(duration)}</p>
         <h3>{name}</h3>
         <p className='paragraph-4 max-w-[200px] mb-6'>

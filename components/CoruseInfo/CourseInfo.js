@@ -29,7 +29,7 @@ const CurseInfo = () => {
       setLoading(true);
       const { data, error, status } = await supabase
         .from("progress")
-        .select(`course (name, description, duration), percent`)
+        .select(`course (name, description, duration), percent, id`)
         .eq("user", user.id);
       if (error && status !== 406) {
         throw error;
@@ -54,6 +54,7 @@ const CurseInfo = () => {
           <div>Loading</div>
         ) : progresses?.map((progress) => (
           <CourseInfoItem
+            key={progress.id}
             color="bg-secondary"
             width={progress.percent}
             icon={"icon-tag-search.svg"}

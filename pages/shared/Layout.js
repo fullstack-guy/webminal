@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import OptionMenu from '../../components/OptionMenu/OptionMenu';
-import CourseInfo from '../../components/CoruseInfo/CurseInfo';
+import CourseInfo from '../../components/CoruseInfo/CourseInfo';
 
 const Layout = ({ children }) => {
   return (
