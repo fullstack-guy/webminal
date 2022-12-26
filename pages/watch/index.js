@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -44,6 +44,11 @@ const watch = () => {
     }
   };
 
+  const handleNextClick = useCallback(() => {
+    console.log('Next clicked')
+    // will be implemented
+  }, [])
+
   return (
     <>
       <Head>
@@ -74,6 +79,9 @@ const watch = () => {
             <p>{courseData?.course?.description}</p>
             <div className="w-[100%]">
               <ProgressBar width={courseData?.percent} color={"bg-secondary"} />
+            </div>
+            <div className="flex flex-row-reverse w-full">
+              <button className="default-border rounded-2xl text-center mt-14 hover-cursor hover:bg-secondary" onClick={handleNextClick}>Next</button>
             </div>
           </div>
         )}
