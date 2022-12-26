@@ -43,9 +43,9 @@ const MyCoursesList = () => {
         {loading ? (
           <div>Loading</div>
         ) : (
-          courses.length > 0 ? courses.map((course) => (
+          courses.length > 0 ? courses.map((course, idx) => (
             <CoursesListItem
-              key={course.course.id}
+              key={idx}
               header={course.course.name}
               paragraph={course.course.description}
               length={getDurationAsMinute(course.course.duration)}

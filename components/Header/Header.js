@@ -23,6 +23,7 @@ const Header = () => {
               width={200}
               height={80}
               alt='Website logo'
+              priority
             />
           </Link>
           {/* <Image
