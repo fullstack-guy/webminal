@@ -27,7 +27,7 @@ const profile = () => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(`full_name, avatar_url`)
-        .eq("id", user.id)
+        .eq("id", user?.id)
         .single();
 
       if (error && status !== 406) {

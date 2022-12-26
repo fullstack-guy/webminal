@@ -21,7 +21,7 @@ const MyCoursesList = () => {
       const { data, error, status } = await supabase
         .from("progress")
         .select(`course (name, description, duration)`)
-        .eq('user', user.id);
+        .eq('user', user?.id);
       if (error && status !== 406) {
         throw error;
       }

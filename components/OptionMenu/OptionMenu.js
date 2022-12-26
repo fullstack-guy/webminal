@@ -9,6 +9,8 @@ import Button from "../Button/Button";
 import { MainMenuContext } from "../../context/MainMenuContext";
 import supabase from "../../utils/supabase-browser";
 
+const options = ['/', '/my-courses', '/profile'];
+
 const OptionMenu = () => {
   const [tempMenuOptions, setTempMenuOptions] = useContext(MainMenuContext);
   const router = useRouter();
@@ -23,6 +25,24 @@ const OptionMenu = () => {
     getProfile();
   }, [session]);
 
+  useEffect(() => {
+    const path = router.pathname
+    const index = options.findIndex(option => option === path)
+    if(index > -1) {
+      const newOptions = tempMenuOptions.map((item) => ({
+        ...item,
+        isSelected: false,
+      }));
+      const newSelected = {
+        ...tempMenuOptions[index],
+        isSelected: true,
+      };
+
+      newOptions[index] = newSelected;
+      setTempMenuOptions(newOptions);
+    }
+  }, [router, router.pathname])
+
   async function getProfile() {
     try {
       setLoading(true);
@@ -30,7 +50,7 @@ const OptionMenu = () => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(`full_name, avatar_url`)
-        .eq("id", user.id)
+        .eq("id", user?.id)
         .single();
 
       if (error && status !== 406) {
@@ -85,17 +105,6 @@ const OptionMenu = () => {
               isSelected={isSelected}
               url={url}
               onClick={() => {
-                const newOptions = tempMenuOptions.map((item) => ({
-                  ...item,
-                  isSelected: false,
-                }));
-                const newSelected = {
-                  ...tempMenuOptions[index],
-                  isSelected: true,
-                };
-
-                newOptions[index] = newSelected;
-                setTempMenuOptions(newOptions);
                 router.push(item.url);
               }}
             />
